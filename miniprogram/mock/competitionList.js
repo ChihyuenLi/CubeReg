@@ -4,7 +4,7 @@ const competitionList = [
     name: '2022年全国魔方大赛123',
     type: '综合',
     date: '2022-08-20',
-    location: '北京市海淀区中关村创业大街1号',
+    location: '北京市海淀区中关村创业大街3号',
     status: 'open'
   },
   {
