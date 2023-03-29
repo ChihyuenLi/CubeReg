@@ -1,0 +1,20 @@
+<!--pages/competition/list/list.wxml-->
+
+<view class="container">
+  <view class="header">
+    <!-- 页面标题 -->
+    <text class="title">魔方比赛报名</text>
+  </view>
+  <view class="list">
+    <!-- 比赛信息列表，使用 wx:for 循环遍历比赛列表数据 -->
+    <block wx:for="{{ competitionList }}" wx:key="{{ item.id }}">
+  <view class="item" bindtap="goToDetail" data-competition-id="{{ item.id }}">
+    <!-- 显示比赛名称、时间和地点等基本信息 -->
+    <view class="item-title">{{ item.name }}</view>
+    <view class="item-meta">{{ item.date }} | {{ item.location }}</view>
+    <!-- 显示报名状态按钮 -->
+    <view class="item-status {{ item.status === 'open' ? 'open' : 'close' }}">{{ item.status === 'open' ? '报名中' : '已截止' }}</view>
+  </view>
+    </block>
+  </view>
+</view>

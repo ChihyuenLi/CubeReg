@@ -1,0 +1,25 @@
+<!--pages/competition/detail/detail.wxml-->
+
+<view class="container">
+  <view class="header">
+    <!-- 显示比赛名称 -->
+    <text class="title">{{competition.name}}</text>
+  </view>
+  <view class="content">
+    <!-- 显示比赛详细信息 -->
+    <view class="info-item">
+      <text class="label">类型：</text>
+      <text class="value">{{competition.type}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">时间：</text>
+      <text class="value">{{competition.date}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">地点：</text>
+      <text class="value">{{competition.location}}</text>
+    </view>
+    <!-- 这里添加一个报名按钮，点击后跳转到报名页面 -->
+    <button class="signup-btn" bindtap="goToSignup">立即报名</button>
+  </view>
+</view>

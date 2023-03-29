@@ -1,0 +1,47 @@
+<view class="container">
+  <form bindsubmit="onSubmit" bindreset="onReset" class="signup-form">
+    <view class="form-item">
+      <text class="label">姓名：</text>
+      <input name="name" placeholder="请输入姓名" required></input>
+    </view>
+    <view class="form-item">
+      <text class="label">身份证号：</text>
+      <input type="idcard" name="idcard" placeholder="请输入身份证号"></input>
+    </view>
+    <view class="form-item">
+      <text class="label">年龄：</text>
+      <input type="number" name="age" placeholder="请输入年龄" required></input>
+    </view>
+    <view class="form-item">
+      <text class="label">电话：</text>
+      <input type="tel" name="phone" placeholder="请输入手机号码" required></input>
+    </view>
+    <view class="form-item">
+      <text class="label">邮箱：</text>
+      <input type="email" name="email" placeholder="请输入邮箱地址"></input>
+    </view>
+    <view class="form-item">
+      <text class="label">学校：</text>
+      <input name="school" placeholder="请输入学校名称"></input>
+    </view>
+    <view class="form-item">
+      <text class="label">报名项目：</text>
+      <select name="item" required>
+        <option value="">请选择报名项目</option>
+        <option value="3x3">三阶魔方</option>
+        <option value="4x4">四阶魔方</option>
+        <option value="5x5">五阶魔方</option>
+      </select>
+    </view>
+    <view class="form-item">
+      <text class="label">报名费用：</text>
+      <text class="value">{{ competition.fee }}元</text>
+    </view>
+    <view class="form-item">
+      <text class="label">备注：</text>
+      <textarea name="remark" placeholder="请输入备注信息"></textarea>
+    </view>
+    <button form-type="submit" class="submit-btn">提交</button>
+    <button form-type="reset" class="reset-btn">重置</button>
+  </form>
+</view>

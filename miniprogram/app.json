@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/community/community",
+    "pages/competition/signup/signup",
+    "pages/competition/list/list",
+    "pages/competition/detail/detail",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationBarTitleText": "魔方比赛报名系统"
+  },
+  "usingComponents": {
+    "navbar": "/components/navbar/navbar"
+  }
+}

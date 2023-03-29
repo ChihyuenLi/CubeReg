@@ -1,0 +1,47 @@
+.container {
+  padding: 20rpx;
+}
+
+.form-group {
+  margin-bottom: 20rpx;
+}
+
+.label {
+  display: block;
+  font-size: 16rpx;
+  color: #333;
+}
+
+.input {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 4rpx;
+  font-size: 16rpx;
+  color: #333;
+}
+
+.picker {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16rpx;
+  color: #999;
+}
+
+.btn-submit {
+  width: 100%;
+  height: 80rpx;
+  background-color: #007aff;
+  border-radius: 4rpx;
+  color: #fff;
+  font-size: 18rpx;
+  line-height: 80rpx;
+  text-align: center;
+}

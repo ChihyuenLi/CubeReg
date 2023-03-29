@@ -1,0 +1,11 @@
+<!-- navbar.wxml -->
+
+<view class="navbar">
+  <image class="logo" src="/images/logo.png" />
+  <view class="nav-items">
+    <view class="nav-item" wx:for="{{ navList }}" wx:key="index">
+      <image class="icon" src="{{ item.icon }}" />
+      <text class="title">{{ item.title }}</text>
+    </view>
+  </view>
+</view>

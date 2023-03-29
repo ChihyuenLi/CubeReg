@@ -1,0 +1,76 @@
+/* 容器 */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* 头部 */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #0099ff;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+/* 广告轮播图 */
+.banner {
+  margin-top: 10px;
+  width: 100%;
+  height: 200px;
+}
+
+/* 导航栏 */
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #f1f1f1;
+  font-size: 16px;
+}
+
+/* 新闻列表 */
+.news-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+}
+
+.news-item image {
+  width: 120px;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.news-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.news-content .title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.news-content .desc {
+  font-size: 14px;
+  color: #666;
+}
