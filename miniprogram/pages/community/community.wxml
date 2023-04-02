@@ -1,2 +1,20 @@
 <!--pages/community/community.wxml-->
-<text>pages/community/community.wxml</text>
+<scroll-view scroll-x="{{true}}" class="scroll-view">
+  <view wx:for="{{tags}}" wx:key="{{index}}" class="tag-item"
+    bindtap="onTagClick" data-tag="{{item}}">{{item}}</view>
+</scroll-view>
+<swiper current="{{current}}" class="swiper">
+  <swiper-item wx:for="{{tagData}}" wx:key="{{index}}">
+    <view wx:for="{{item}}" wx:key="{{index}}" class="club-item">
+      <image src="{{item.logoUrl}}" class="avatar" mode="aspectFit"></image>
+      <view class="info">
+        <view class="name">{{item.name}}</view>
+        <view class="desc">{{item.desc}}</view>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>
+<view class="search-bar">
+  <input placeholder="输入关键词搜索" bindinput="onInput"></input>
+  <button type="primary" size="mini" bindtap="onSearch">搜索</button>
+</view>

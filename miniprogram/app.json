@@ -5,7 +5,8 @@
     "pages/competition/signup/signup",
     "pages/competition/list/list",
     "pages/competition/detail/detail",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/login/login"
   ],
   "window": {
     "navigationBarTitleText": "魔方比赛报名系统"

@@ -1,66 +1,60 @@
 // pages/community/community.ts
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    tags: ['全部', '运动', '文化', '音乐', '科技'],
+    tagData: [],
+    current: 0,
+    keyword: ''
+  },  
+  onLoad: function () {
+    wx.showLoading({ title: '加载中' });
+    wx.request({
+      url: 'https://example.com/api/clubs',
+      success: (res) => {
+        let data = res.data;
+        let tagData = this.getClubByTag(data, this.data.tags[0]);
+        for (let i = 1; i < this.data.tags.length; i++) {
+          tagData.push(this.getClubByTag(data, this.data.tags[i]));
+        }
+        this.setData({ tagData: tagData });
+        wx.hideLoading();
+      },
+      fail: () => {
+        wx.hideLoading();
+        wx.showToast({ title: '网络异常，请重试', icon: 'none' });
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  getClubByTag: function (data, tag) {
+    return data.filter((item) => {
+      return item.tag === tag || tag === '全部';
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  onTagClick: function (e) {
+    let tag = e.currentTarget.dataset.tag;
+    let index = this.data.tags.indexOf(tag);
+    if (index === this.data.current) return;
+    this.setData({ current: index });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  onInput: function (e) {
+    this.setData({ keyword: e.detail.value.trim() });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onSearch: function () {
+    wx.showLoading({ title: '加载中' });
+    wx.request({
+      url: 'https://example.com/api/clubs',
+      data: { keyword: this.data.keyword },
+      success: (res) => {
+        let data = res.data;
+        let tagData = [{ name: '搜索结果', clubs: data }];
+        this.setData({ tagData: tagData, current: 0 });
+        wx.hideLoading();
+      },
+      fail: () => {
+        wx.hideLoading();
+        wx.showToast({ title: '网络异常，请重试', icon: 'none' });
+      }
+    })
   }
 })

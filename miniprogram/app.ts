@@ -2,7 +2,7 @@
 
 App<IAppOption>({
   globalData: {
-    currentTab: 0,
+    isLogin: false,
   },
 
   onLaunch() {
@@ -10,12 +10,16 @@ App<IAppOption>({
     const logs = wx.getStorageSync('logs') || [];
     logs.unshift(Date.now());
     wx.setStorageSync('logs', logs);
+       wx.cloud.init({
+      env: 'cloud1-9guhrh7s958adb14',
+      traceUser: true
+    })
 
     // 登录
     wx.login({
       success: res => {
-        console.log(res.code);
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log(res.code); 
+        getApp().globalData.isLogin = true
       },
     });
   },

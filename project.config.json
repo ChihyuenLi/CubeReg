@@ -5,6 +5,11 @@
     "include": []
   },
   "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "cloudfunctionService": {
+    "serviceName": "cloud1",
+    "envId": "cloud1-9guhrh7s958adb14"
+  },
   "compileType": "miniprogram",
   "projectname": "ts-demo",
   "setting": {
@@ -16,7 +21,9 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "condition": false
+    "condition": false,
+    "es6": true,
+    "enhance": true
   },
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
@@ -27,5 +34,6 @@
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
 }

@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo" wx:if="{{hasUserInfo}}">
+    <block>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      修改头像
+    </button>
+    <input type="nickname" class="nick-name-input" placeholder="请输入昵称" 	bindblur="changeNickName"/>
+  </view>
+  <button bindtap="getUserProfile" wx:else>获取用户信息</button>
+</view>

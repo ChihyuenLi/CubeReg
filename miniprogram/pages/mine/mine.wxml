@@ -1,10 +1,13 @@
-<!--pages/mine/mine.wxml-->
-<view class="header">
-  <view class="bg"></view>
-  <image class="avatar" src="{{ user.avatar }}"></image>
-  <text class="nickname">{{ user.nickname }}</text>
-  <text class="info">{{ user.info }}</text>
+<view wx:if="{{!isLogin}}">
+  <button class="login-btn" bindtap="goToLoginPage">点击登录</button>
 </view>
+
+<view wx:else>
+  <image class="avatar" src="{{avatarUrl}}"></image>
+  <text class="nickname">{{nickname}}</text>
+</view>
+
+
 <view class="record">
   <view class="title">报名记录</view>
   <view class="list">
