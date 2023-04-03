@@ -3,10 +3,19 @@
 App<IAppOption>({
   globalData: {
     isLogin: false,
+    currentPath: '' // 用于存储当前页面的路径
   },
-
+  onShow: function (options) {
+    // 获取当前页面路径
+    const pages = getCurrentPages()
+    const currentPage = pages[pages.length - 1]
+    const currentPath = `/${currentPage.route}`
+    
+    // 存储当前页面路径到全局数据中
+    this.globalData.currentPath = currentPath
+  },
   onLaunch() {
-    // 展示本地存储能力
+    // 日志和云环境初始化
     const logs = wx.getStorageSync('logs') || [];
     logs.unshift(Date.now());
     wx.setStorageSync('logs', logs);
@@ -18,19 +27,9 @@ App<IAppOption>({
     // 登录
     wx.login({
       success: res => {
-        console.log(res.code);
         getApp().globalData.isLogin = true
       },
     });
   },
-
-  switchTab(e: any) {
-    const index = parseInt(e.currentTarget.dataset.index);
-    if (index === this.globalData.currentTab) {
-      return;
-    }
-
-    this.globalData.currentTab = index;
-    wx.navigateTo({ url: `/pages/tab${index}/index` });
-  },
+  
 });

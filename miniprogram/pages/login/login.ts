@@ -8,7 +8,6 @@ Page({
     hasUserInfo: false
   },
   onLoad() {
-    // this.getUserProfile()
   },
   getUserProfile(e) {
     wx.getUserProfile({
@@ -42,8 +41,9 @@ Page({
       ['userInfo.nickName']: e.detail.value
     })
   },
+
   backToMine(){
-    console.log("clickbackToMine")
+
     getApp().globalData.isLogin=true;
     console.log( getApp().globalData.isLogin)
       wx.navigateBack({

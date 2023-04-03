@@ -8,11 +8,39 @@
     "pages/mine/mine",
     "pages/login/login"
   ],
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"icon/home.png",
+        "selectedIconPath": "icon/home.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "社团",
+        "iconPath":"icon/shetuan.png",
+        "selectedIconPath": "icon/shetuan.png"
+      },
+      {
+        "pagePath": "pages/competition/list/list",
+        "text": "比赛",
+        "iconPath":"icon/bisai.png",
+        "selectedIconPath": "icon/bisai.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath":"icon/mine.png",
+        "selectedIconPath": "icon/mine.png"
+      }
+    ],
+    "usingComponents": {}
+  },
   "window": {
     "navigationBarTitleText": "魔方比赛报名系统"
-  },
-  "usingComponents": {
-    "navbar": "/components/navbar/navbar"
   },
   "sitemapLocation": "sitemap.json"
 }

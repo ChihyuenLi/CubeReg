@@ -1,11 +1,7 @@
 <!-- navbar.wxml -->
-
-<view class="navbar">
-  <image class="logo" src="/images/logo.png" />
-  <view class="nav-items">
-    <view class="nav-item" wx:for="{{ navList }}" wx:key="index">
-      <image class="icon" src="{{ item.icon }}" />
-      <text class="title">{{ item.title }}</text>
-    </view>
+<view class="tab-bar">
+  <view wx:for="{{ list }}" wx:key="pagePath" class="tab-bar-item" bindtap="onTabBarTap" data-pagePath="{{ item.pagePath }}">
+    <image class="tab-bar-item-icon" src="{{ item.pagePath === currentPath ? item.selectedIconPath : item.iconPath }}" />
+    <text class="tab-bar-item-text">{{ item.text }}</text>
   </view>
 </view>

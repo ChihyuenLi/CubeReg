@@ -3,10 +3,14 @@
 Page({
   data: {
     isLogin :  getApp().globalData.isLogin,
-    userInfo: {},
-    avatarUrl: 'path/to/avatar/image.png',
-    nickname: '测试用号码',
-    wxId: '测试用号码',
+    userInfo: {
+      avatarUrl: 'https://pica.zhimg.com/80/v2-6afa72220d29f045c15217aa6b275808_1440w.webp?source=1940ef5c',
+      nickName: '微信用户',
+      realName:'李致远',
+      school:'江北新区浦口实验小学',
+      grade:'五年级',
+      class:'1班'
+    },
     records: [
       {
         name: '比赛名称1',
@@ -30,6 +34,7 @@ Page({
   },
   onLoad(){
     console.log("onload")
+    // console.log(this.data.userInfo)
   },
   onShow(){
      this.setData({
@@ -51,8 +56,11 @@ Page({
       success: (res) => {
         console.log(res.userInfo)
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+          userInfo: {
+            nickname: res.userInfo.nickName,
+            avatarUrl:res.userInfo.avatarUrl
+          },
+          hasUserInfo: true,
         })
       }
     })
@@ -69,32 +77,4 @@ Page({
       ['userInfo.avatarUrl']: avatarUrl,
     })
   },
-
-  onSettingTap: function () {
-    // 处理点击设置按钮的逻辑
-    wx.navigateTo({
-      url: '/pages/setting/index',
-    });
-  },
-
-  onHelpTap: function () {
-    // 处理点击帮助中心按钮的逻辑
-    wx.navigateTo({
-      url: '/pages/help/index',
-    });
-  },
-
-  onFeedbackTap: function () {
-    // 处理点击反馈按钮的逻辑
-    wx.navigateTo({
-      url: '/pages/feedback/index',
-    });
-  },
-
-  onAboutTap: function () {
-    // 处理点击关于我们按钮的逻辑
-    wx.navigateTo({
-      url: '/pages/about/index',
-    });
-  }
-});
+})

@@ -1,43 +1,69 @@
-
-
-<view class="modal" wx:if="{{!isLogin}}">
+<!-- <view class="modal" wx:if="{{!isLogin}}">
   <view class="modal-content">
     <view class="modal-title">提示</view>
     <view class="modal-text">您还未登录，请先登录！</view>
     <button class="modal-btn" bindtap="goToLoginPage">去登录</button>
   </view>
-</view>
-<view class="record">
-  <view class="title">报名记录</view>
-  <view class="list">
-    <block wx:for="{{ records }}" wx:key="index">
-      <view class="card" bindtap="onRecordTap">
-        <view class="content">
-          <text class="name">{{ item.name }}</text>
-          <text class="time">{{ item.time }}</text>
-          <text class="fee">{{ item.fee }}</text>
-        </view>
-        <text class="status {{ item.status === '已报名' ? 'status-success' : 'status-fail' }}">{{ item.status }}</text>
-      </view>
-    </block>
+</view> -->
+<!-- <i-panel title="我的信息">
+  <i-card title="{{ userInfo.nickName }}" extra="登录" thumb="{{ userInfo.avatarUrl }}">
+    <view slot="extra">登录</view>
+    <view slot="content">手机号：</view>
+  </i-card>
+</i-panel> -->
+
+<view class="card">
+  <view class="top">
+    <view class="wechat">{{userInfo.nickName}}</view>
+    <view class="name">{{userInfo.realName}}</view>
+  </view>
+  <view class="middle">
+    <view class="info-container">
+      <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+  </view>
+  <view class="bottom">
+    <i-row  >
+      <i-col span="12">
+        <view class="label">学校</view>
+        <view class="value">{{userInfo.school}}</view>
+      </i-col>
+      <i-col span="6" >
+        <view class="label">年级</view>
+        <view class="value">{{userInfo.grade}}</view>
+      </i-col>
+      <i-col span="6">
+        <view class="label">班级</view>
+        <view class="value">{{userInfo.class}}</view>
+      </i-col>
+    </i-row>
   </view>
 </view>
 
-<view class="actions">
-  <view class="action" bindtap="onSettingTap">
-    <image src="path/to/setting/icon.png" class="icon"></image>
-    <text class="label">设置</text>
-  </view>
-  <view class="action" bindtap="onHelpTap">
-    <image src="path/to/help/icon.png" class="icon"></image>
-    <text class="label">帮助中心</text>
-  </view>
-  <view class="action" bindtap="onFeedbackTap">
-    <image src="path/to/feedback/icon.png" class="icon"></image>
-    <text class="label">反馈</text>
-  </view>
-  <view class="action" bindtap="onAboutTap">
-    <image src="path/to/about/icon.png" class="icon"></image>
-    <text class="label">关于我们</text>
-  </view>
-</view>
+<i-panel title="我的社团">
+  <view style="padding: 15px;" wx-if="{{hasComunity}}"> 暂无社团，立即报名</view>
+
+  <i-card title=" 暂无社团，立即报名" thumb="{{ userInfo.avatarUrl }}" wx-else>
+    <view slot="content">所属学校:</view>
+  </i-card>
+
+</i-panel>
+
+<i-panel title="我的最好成绩">
+  <i-cell-group>
+    <i-cell title="三阶魔方" value="暂无成绩"></i-cell>
+    <i-cell title="二阶魔方" value="暂无成绩"></i-cell>
+    <i-cell title="四阶魔方" value="暂无成绩"></i-cell>
+    <i-cell title="斜转魔方" value="暂无成绩"></i-cell>
+    <i-cell title="金字塔魔方" value="暂无成绩"></i-cell>
+  </i-cell-group>
+</i-panel>
+
+
+<i-panel title="我的比赛">
+  <i-cell-group wx:for="{{ records }}" wx:key="index">
+    <i-cell title="{{ item.name }}" label="{{ item.time }}">
+      <view slot="footer"> <text class="status {{ item.status === '已报名' ? 'status-success' : 'status-fail' }}">{{ item.status }} </text></view>
+    </i-cell>
+  </i-cell-group>
+</i-panel>
