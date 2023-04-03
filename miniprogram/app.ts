@@ -10,7 +10,7 @@ App<IAppOption>({
     const logs = wx.getStorageSync('logs') || [];
     logs.unshift(Date.now());
     wx.setStorageSync('logs', logs);
-       wx.cloud.init({
+    wx.cloud.init({
       env: 'cloud1-9guhrh7s958adb14',
       traceUser: true
     })
@@ -18,7 +18,7 @@ App<IAppOption>({
     // 登录
     wx.login({
       success: res => {
-        console.log(res.code); 
+        console.log(res.code);
         getApp().globalData.isLogin = true
       },
     });

@@ -1,13 +1,12 @@
-<view wx:if="{{!isLogin}}">
-  <button class="login-btn" bindtap="goToLoginPage">点击登录</button>
+
+
+<view class="modal" wx:if="{{!isLogin}}">
+  <view class="modal-content">
+    <view class="modal-title">提示</view>
+    <view class="modal-text">您还未登录，请先登录！</view>
+    <button class="modal-btn" bindtap="goToLoginPage">去登录</button>
+  </view>
 </view>
-
-<view wx:else>
-  <image class="avatar" src="{{avatarUrl}}"></image>
-  <text class="nickname">{{nickname}}</text>
-</view>
-
-
 <view class="record">
   <view class="title">报名记录</view>
   <view class="list">
@@ -23,6 +22,7 @@
     </block>
   </view>
 </view>
+
 <view class="actions">
   <view class="action" bindtap="onSettingTap">
     <image src="path/to/setting/icon.png" class="icon"></image>

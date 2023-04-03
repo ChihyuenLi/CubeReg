@@ -9,6 +9,15 @@
       修改头像
     </button>
     <input type="nickname" class="nick-name-input" placeholder="请输入昵称" 	bindblur="changeNickName"/>
+    <input type="phoneNumber"
+    class="nick-name-input"
+    placeholder="请输入手机号码"
+    />
   </view>
   <button bindtap="getUserProfile" wx:else>获取用户信息</button>
+
+  <button bindtap="backToMine">
+  返回上一层
+  </button>
+  
 </view>

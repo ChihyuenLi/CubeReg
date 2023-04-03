@@ -1,5 +1,5 @@
 {
-  "description": "项目配置文件",
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -23,7 +23,26 @@
     },
     "condition": false,
     "es6": true,
-    "enhance": true
+    "enhance": true,
+    "postcss": true,
+    "packNpmRelationList": [],
+    "urlCheck": true,
+    "coverView": true,
+    "lazyloadPlaceholderEnable": false,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "autoAudits": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmManually": false,
+    "minifyWXSS": true,
+    "useStaticServer": true,
+    "showES6CompileOption": false,
+    "checkInvalidKey": true,
+    "disableUseStrict": false,
+    "minifyWXML": true
   },
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
