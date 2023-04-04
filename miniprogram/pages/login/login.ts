@@ -4,22 +4,20 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false
+    userInfo: {
+      "avatarUrl":"../../icon/touxiang.png",
+    },
+    hasUserInfo: false,
+    array: ['选项一', '选项二', '选项三'],
+    index: 0
+  },
+  onChange: function(e) {
+    console.log('选中的值为：', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
   onLoad() {
-  },
-  getUserProfile(e) {
-    wx.getUserProfile({
-      desc: '展示用户信息', 
-      success: (res) => {
-        console.log(res.userInfo)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    })
   },
   //用户选中自定义头像的回调
   onChooseAvatar(e) {

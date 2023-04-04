@@ -1,23 +1,47 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo" wx:if="{{hasUserInfo}}">
+  <view class="userinfo">
     <block>
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
     <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
       修改头像
     </button>
-    <input type="nickname" class="nick-name-input" placeholder="请输入昵称" 	bindblur="changeNickName"/>
-    <input type="phoneNumber"
-    class="nick-name-input"
-    placeholder="请输入手机号码"
-    />
-  </view>
-  <button bindtap="getUserProfile" wx:else>获取用户信息</button>
+    <form catchsubmit="formSubmit" catchreset="formReset">
+      <i-panel title="信息填写">
+        <i-input value="{{ name }}" title="姓名" autofocus placeholder="名字" bindblur="changeNickName" />
+        <i-input value="{{ school }}" title="学校" autofocus placeholder="学校" bindblur="changeNickName" />
+        <i-input value="{{ phone }}" type="number" title="联系电话" placeholder="请输入手机号" />
+        <i-input value="{{ value4 }}" title="用户信息" disabled />
+      </i-panel>
+      <view class="section">
+        <view class="section__title">出生年月</view>
+        <picker mode="date" value="{{date}}" start="2000-01-01" end="2030-01-01" bindchange="bindDateChange">
+          <view class="picker">
+            当前选择: {{date}}
+          </view>
+        </picker>
+      </view>
+      <i-panel title="无标题输入框">
+        <i-input value="{{ value5 }}" placeholder="请输入收货人姓名" />
+      </i-panel>
+    </form>
 
+
+    <i-panel title="圆角输入框">
+      <i-input value="{{ value6 }}" type="number" right title="消费总额" mode="wrapped" placeholder="询问收银员后输入" />
+    </i-panel>
+
+  </view>
   <button bindtap="backToMine">
-  返回上一层
+    返回上一层
   </button>
-  
+  <view class="container">
+    <picker bindchange="onChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        {{array[index]}}
+      </view>
+    </picker>
+  </view>
 </view>

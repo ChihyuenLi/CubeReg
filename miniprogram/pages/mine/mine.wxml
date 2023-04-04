@@ -12,7 +12,7 @@
   </i-card>
 </i-panel> -->
 
-<view class="card">
+<view class="card" bindtap="goToLoginPage">
   <view class="top">
     <view class="wechat">{{userInfo.nickName}}</view>
     <view class="name">{{userInfo.realName}}</view>

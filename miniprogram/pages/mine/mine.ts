@@ -4,9 +4,9 @@ Page({
   data: {
     isLogin :  getApp().globalData.isLogin,
     userInfo: {
-      avatarUrl: 'https://pica.zhimg.com/80/v2-6afa72220d29f045c15217aa6b275808_1440w.webp?source=1940ef5c',
-      nickName: '微信用户',
-      realName:'李致远',
+      avatarUrl: '../../icon/touxiang.png',
+      nickName: '李致远',
+      realName:'段位：N1',
       school:'江北新区浦口实验小学',
       grade:'五年级',
       class:'1班'
@@ -44,7 +44,6 @@ Page({
   },
 
   goToLoginPage(e){
-    console.log("!22");
     wx.navigateTo({
       url: '/pages/login/login'
     })
