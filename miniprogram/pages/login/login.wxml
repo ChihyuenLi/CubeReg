@@ -1,84 +1,36 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" style="position: relative; left: 0rpx; top: -130rpx">
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <i-button  open-type="chooseAvatar" size="small" bind:chooseavatar="onChooseAvatar">
       修改头像
-    </button>
-    <form catchsubmit="formSubmit" catchreset="formReset">
-      <i-panel title="信息填写">
-        <i-input value="{{ name }}" title="姓名" autofocus placeholder="名字" bindblur="changeNickName" />
-        <i-input value="{{ school }}" title="学校" autofocus placeholder="学校" bindblur="changeNickName" />
-        <i-input value="{{ phone }}" type="number" title="联系电话" placeholder="请输入手机号" />
-
-        <i-row>
-          <i-col span="8">
-            <i-cell title="出生年月"></i-cell>
-          </i-col>
-          <i-col span="16" class="picker" style="position: relative; left: 0rpx; top: 2rpx">
-            <picker slot="footer" mode="date" value="{{date}}" start="2000-01-01" end="2030-01-01" bindchange="bindDateChange">
-              {{date}}
-            </picker>
-          </i-col>
-
-        </i-row>
-      </i-panel>
+    </i-button>
+    <form catchsubmit="formSubmit" catchreset="formReset"> 
+      <i-cell title="姓名" label="请输入学生姓名">
+        <i-input slot="footer" value="{{ name }}" placeholder="姓名" autofocus bindblur="changeName" />
+      </i-cell>
+      <i-cell label="请选择学校" title="学校">
+        <picker slot="footer" bindchange="bindSchoolPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            {{school}}
+          </view>
+        </picker>
+      </i-cell>
+      <i-cell title="联系方式" label="请输入家长手机号码">
+        <i-input slot="footer" value="{{ phone }}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="number" placeholder="手机号" />
+      </i-cell>
+      <i-cell title="出生年月" label="与身份证信息一致" >
+        <picker slot="footer" mode="date" value="{{date}}" start="2000-01-01" end="2030-01-01" bindchange="bindDateChange">
+          {{date}}
+        </picker>
+      </i-cell>
+      <i-cell title="微信昵称" label="方便老师加您好友">
+        <i-input slot="footer" value="{{ name }}" type="nickname" placeholder="微信名" bindblur="changeNickName" />
+      </i-cell>
     </form>
-
-    <view class="section">
-      <view class="section__title">多列选择器</view>
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker">
-          当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
-        </view>
-      </picker>
-    </view>
-  </view>
-  
-  <button bindtap="backToMine">
-    返回上一层
-  </button>
-  <view class="container">
-
-    <picker bindchange="onChange" value="{{index}}" range="{{array}}">
-      <view class="picker">
-        {{array[index]}}
-      </view>
-    </picker>
+    <i-button class="submit-btn" size="large" long="true" type="primary" bindtap="backToMine">
+      登录
+    </i-button>
   </view>
 </view>
-
-<view class="page__bd">
-    <form bindsubmit="formSubmit">
-      <view class="weui-cells weui-cells_form">
-        <view class="weui-cell">
-          <view class="weui-cell__hd"><label class="weui-label">姓名</label></view>
-          <view class="weui-cell__bd">
-            <input class="weui-input" type="text" placeholder="请输入姓名" name="name" />
-          </view>
-        </view>
-        <view class="weui-cell">
-          <view class="weui-cell__hd"><label class="weui-label">出生年月</label></view>
-          <view class="weui-cell__bd weui-cell_primary">
-            <picker mode="date" value="{{date}}" start="{{startYear}}" end="{{endYear}}" bindchange="bindDateChange">
-              <view class="weui-input">{{date}}</view>
-            </picker>
-          </view>
-          <view class="weui-cell__ft"></view>
-        </view>
-        <view class="weui-cell weui-cell_vcode">
-          <view class="weui-cell__hd"><label class="weui-label">验证码</label></view>
-          <view class="weui-cell__bd">
-            <input class="weui-input" type="number" placeholder="请输入验证码" name="code" />
-          </view>
-          <view class="weui-cell__ft">
-            <button class="weui-vcode-btn">获取验证码</button>
-          </view>
-        </view>
-      </view>
-      <view class="weui-btn-area">
-        <button type="primary" class="weui-btn" form-type="submit">提交</button>
-      </view>
-    </form>
-  </view>

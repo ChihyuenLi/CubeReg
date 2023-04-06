@@ -6,6 +6,7 @@ Page({
   data: {
     userInfo: {
       "avatarUrl":"../../icon/touxiang.png",
+      
     },
     hasUserInfo: false,
     array: ['选项一', '选项二', '选项三'],
