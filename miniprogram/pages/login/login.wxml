@@ -11,7 +11,7 @@
         <i-input slot="footer" value="{{ name }}" placeholder="姓名" autofocus bindblur="changeName" />
       </i-cell>
       <i-cell label="请选择学校" title="学校">
-        <picker slot="footer" bindchange="bindSchoolPickerChange" value="{{index}}" range="{{array}}">
+        <picker slot="footer" bindchange="bindSchoolPickerChange" value="{{index}}" range="{{school_list}}">
           <view class="picker">
             {{school}}
           </view>
