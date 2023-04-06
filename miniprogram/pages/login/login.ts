@@ -9,18 +9,23 @@ Page({
     },
     hasUserInfo: false,
     array: ['选项一', '选项二', '选项三'],
-    index: 0
+    index: 0,
+    date:"与身份证相同"
   },
-  onChange: function(e) {
+  onChange: function(e:any) {
     console.log('选中的值为：', e.detail.value)
     this.setData({
       index: e.detail.value
     })
   },
-  onLoad() {
+  bindDateChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
   },
   //用户选中自定义头像的回调
-  onChooseAvatar(e) {
+  onChooseAvatar(e: any ) {
     const {
       avatarUrl
     } = e.detail
@@ -29,14 +34,6 @@ Page({
 
     this.setData({
       ['userInfo.avatarUrl']: avatarUrl,
-    })
-  },
-  // 用户修改昵称
-  changeNickName(e){
-    let name = e.detail.value;
-    if(name.length === 0) return;
-    this.setData({
-      ['userInfo.nickName']: e.detail.value
     })
   },
 

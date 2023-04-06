@@ -5,12 +5,6 @@
     <button class="modal-btn" bindtap="goToLoginPage">去登录</button>
   </view>
 </view> -->
-<!-- <i-panel title="我的信息">
-  <i-card title="{{ userInfo.nickName }}" extra="登录" thumb="{{ userInfo.avatarUrl }}">
-    <view slot="extra">登录</view>
-    <view slot="content">手机号：</view>
-  </i-card>
-</i-panel> -->
 
 <view class="card" bindtap="goToLoginPage">
   <view class="top">

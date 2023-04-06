@@ -1,10 +1,8 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-    <block>
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
       修改头像
     </button>
@@ -13,31 +11,36 @@
         <i-input value="{{ name }}" title="姓名" autofocus placeholder="名字" bindblur="changeNickName" />
         <i-input value="{{ school }}" title="学校" autofocus placeholder="学校" bindblur="changeNickName" />
         <i-input value="{{ phone }}" type="number" title="联系电话" placeholder="请输入手机号" />
-        <i-input value="{{ value4 }}" title="用户信息" disabled />
-      </i-panel>
-      <view class="section">
-        <view class="section__title">出生年月</view>
-        <picker mode="date" value="{{date}}" start="2000-01-01" end="2030-01-01" bindchange="bindDateChange">
-          <view class="picker">
-            当前选择: {{date}}
-          </view>
-        </picker>
-      </view>
-      <i-panel title="无标题输入框">
-        <i-input value="{{ value5 }}" placeholder="请输入收货人姓名" />
+
+        <i-row>
+          <i-col span="8">
+            <i-cell title="出生年月"></i-cell>
+          </i-col>
+          <i-col span="16" class="picker" style="position: relative; left: 0rpx; top: 2rpx">
+            <picker slot="footer" mode="date" value="{{date}}" start="2000-01-01" end="2030-01-01" bindchange="bindDateChange">
+              {{date}}
+            </picker>
+          </i-col>
+
+        </i-row>
       </i-panel>
     </form>
 
-
-    <i-panel title="圆角输入框">
-      <i-input value="{{ value6 }}" type="number" right title="消费总额" mode="wrapped" placeholder="询问收银员后输入" />
-    </i-panel>
-
+    <view class="section">
+      <view class="section__title">多列选择器</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">
+          当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+        </view>
+      </picker>
+    </view>
   </view>
+  
   <button bindtap="backToMine">
     返回上一层
   </button>
   <view class="container">
+
     <picker bindchange="onChange" value="{{index}}" range="{{array}}">
       <view class="picker">
         {{array[index]}}
@@ -45,3 +48,37 @@
     </picker>
   </view>
 </view>
+
+<view class="page__bd">
+    <form bindsubmit="formSubmit">
+      <view class="weui-cells weui-cells_form">
+        <view class="weui-cell">
+          <view class="weui-cell__hd"><label class="weui-label">姓名</label></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入姓名" name="name" />
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd"><label class="weui-label">出生年月</label></view>
+          <view class="weui-cell__bd weui-cell_primary">
+            <picker mode="date" value="{{date}}" start="{{startYear}}" end="{{endYear}}" bindchange="bindDateChange">
+              <view class="weui-input">{{date}}</view>
+            </picker>
+          </view>
+          <view class="weui-cell__ft"></view>
+        </view>
+        <view class="weui-cell weui-cell_vcode">
+          <view class="weui-cell__hd"><label class="weui-label">验证码</label></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" placeholder="请输入验证码" name="code" />
+          </view>
+          <view class="weui-cell__ft">
+            <button class="weui-vcode-btn">获取验证码</button>
+          </view>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button type="primary" class="weui-btn" form-type="submit">提交</button>
+      </view>
+    </form>
+  </view>

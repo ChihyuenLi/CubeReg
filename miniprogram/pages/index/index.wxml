@@ -5,7 +5,7 @@
   </view>
   <view class="banner">
     <!-- 在这里添加你的广告轮播图或视频 -->
-    <image src="banner.png"></image>
+    <!-- <image src="banner.png"></image> -->
   </view>
   <view class="nav">
     <!-- 在这里添加你的导航栏 -->
@@ -16,7 +16,7 @@
   </view>
   <view class="content">
     <view class="news-item">
-  <image src="https://example.com/news1.jpg"></image>
+  <!-- <image src="https://example.com/news1.jpg"></image> -->
   <view class="news-content">
     <text class="title">2023年全国魔方大赛在广州举办</text>
     <text class="desc">2023年全国魔方大赛将于10月份在广州隆重举行。届时，来自全国各地的魔方爱好者将聚集一堂，共同参加这场盛会。</text>
@@ -24,7 +24,7 @@
 </view>
 
 <view class="news-item">
-  <image src="https://example.com/news2.jpg"></image>
+  <!-- <image src="https://example.com/news2.jpg"></image> -->
   <view class="news-content">
     <text class="title">魔方社区开通在线辅导服务</text>
     <text class="desc">为了更好地帮助广大魔方爱好者提升技能，魔方社区推出了在线辅导服务。用户可以通过小程序预约老师进行一对一辅导，提高自己的魔方技能。</text>
@@ -32,7 +32,7 @@
 </view>
 
 <view class="news-item">
-  <image src="https://example.com/news3.jpg"></image>
+  <!-- <image src="https://example.com/news3.jpg"></image> -->
   <view class="news-content">
     <text class="title">魔方社区新版上线</text>
     <text class="desc">魔方社区推出了新版小程序，增加了更多的功能和体验优化。用户可以在新版小程序中更方便地加入社团、报名比赛、参加活动等。</text>
