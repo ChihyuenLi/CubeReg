@@ -48,14 +48,15 @@ Page({
     })
   },
   //用户选中自定义头像的回调
-  onChooseAvatar(e: any ) {
+  onChooseAvatar(e) {
+    const { avatarUrl } = e.detail  //获取图片临时路径
     this.setData({
-      avatarUrl: e.detail,
+      avatarUrl,
     })
   },
   changeNickName(e:any){
     this.setData({
-      nickname:e.detail,
+      nickname:e.detail.value,
     })
   },
 

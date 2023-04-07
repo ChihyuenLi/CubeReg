@@ -2,7 +2,7 @@
 <view class="container" style="position: relative; left: 0rpx; top: -130rpx">
   <view >
     <image  src="{{avatarUrl}}"></image>
-    <i-button  open-type="chooseAvatar" size="small" bind:chooseavatar="onChooseAvatar">
+    <i-button  open-type="chooseAvatar" size="small" bind:chooseavatar="onChooseAvatar" >
       修改头像
     </i-button>
     <text>{{avatarUrl}}</text>
