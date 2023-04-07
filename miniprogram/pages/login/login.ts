@@ -5,14 +5,12 @@ const app = getApp()
 Page({
   data: {
     school_list:[],
-    userInfo: {
-      "avatarUrl":"../../icon/touxiang.png",
-      
-    },
+    avatarUrl:"../../icon/touxiang.png",
+    nickname:"微信名",
     hasUserInfo: false,
     array: ['选项一', '选项二', '选项三'],
     index: 0,
-    date:"与身份证相同",
+    birthdate:"与身份证相同",
     school:"学校"
   },
   onLoad(e:any){
@@ -40,33 +38,28 @@ Page({
   bindSchoolPickerChange (e){
     const index = e.detail.value;
     const value = this.data.school_list[index];
-    console.log('选择的值为：', value);
     this.setData({
       school: value
     });
   },
-  bindDateChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    const index = e.detail.value;
+  bindDateChange: function(e:any) {
     this.setData({
-      date: this.data.school_list[index]
+      birthdate:e.detail.value,
     })
   },
   //用户选中自定义头像的回调
   onChooseAvatar(e: any ) {
-    const {
-      avatarUrl
-    } = e.detail
-
-    console.log(avatarUrl);
-
     this.setData({
-      ['userInfo.avatarUrl']: avatarUrl,
+      avatarUrl: e.detail,
+    })
+  },
+  changeNickName(e:any){
+    this.setData({
+      nickname:e.detail,
     })
   },
 
   backToMine(){
-
     getApp().globalData.isLogin=true;
     console.log( getApp().globalData.isLogin)
       wx.navigateBack({

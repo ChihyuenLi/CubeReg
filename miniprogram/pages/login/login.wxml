@@ -1,11 +1,11 @@
 <!--index.wxml-->
 <view class="container" style="position: relative; left: 0rpx; top: -130rpx">
-  <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view >
+    <image  src="{{avatarUrl}}"></image>
     <i-button  open-type="chooseAvatar" size="small" bind:chooseavatar="onChooseAvatar">
       修改头像
     </i-button>
+    <text>{{avatarUrl}}</text>
     <form catchsubmit="formSubmit" catchreset="formReset"> 
       <i-cell title="姓名" label="请输入学生姓名">
         <i-input slot="footer" value="{{ name }}" placeholder="姓名" autofocus bindblur="changeName" />
@@ -21,12 +21,12 @@
         <i-input slot="footer" value="{{ phone }}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="number" placeholder="手机号" />
       </i-cell>
       <i-cell title="出生年月" label="与身份证信息一致" >
-        <picker slot="footer" mode="date" value="{{date}}" start="2000-01-01" end="2030-01-01" bindchange="bindDateChange">
-          {{date}}
+        <picker slot="footer" mode="date" value="{{birthdate}}" start="2000-01-01" end="2030-01-01" bindchange="bindDateChange">
+          {{birthdate}}
         </picker>
       </i-cell>
       <i-cell title="微信昵称" label="方便老师加您好友">
-        <i-input slot="footer" value="{{ name }}" type="nickname" placeholder="微信名" bindblur="changeNickName" />
+        <i-input slot="footer" value="{{ nickname }}" type="nickname" placeholder="微信名" bindblur="changeNickName" />
       </i-cell>
     </form>
     <i-button class="submit-btn" size="large" long="true" type="primary" bindtap="backToMine">
