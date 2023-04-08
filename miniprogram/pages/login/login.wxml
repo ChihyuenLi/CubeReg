@@ -2,10 +2,9 @@
 <view class="container" style="position: relative; left: 0rpx; top: -130rpx">
   <view >
     <image  src="{{avatarUrl}}"></image>
-    <i-button  open-type="chooseAvatar" size="small" bind:chooseavatar="onChooseAvatar" >
+    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
       修改头像
-    </i-button>
-    <text>{{avatarUrl}}</text>
+    </button>
     <form catchsubmit="formSubmit" catchreset="formReset"> 
       <i-cell title="姓名" label="请输入学生姓名">
         <i-input slot="footer" value="{{ name }}" placeholder="姓名" autofocus bindblur="changeName" />
